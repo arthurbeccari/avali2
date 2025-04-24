@@ -5,6 +5,27 @@
             this.força = força;
             this.mana = mana;
         }
+        
+        // Métodos GET e SET
+        get vida() {
+            return this._vida;
+        }
+        set vida(vida) {
+            this._vida = vida;
+        }
+        get força() {
+            return this._força;
+        }
+        set força(força) {
+            this._força = força;
+        }
+        get mana() {
+            return this._mana;
+        }
+        set mana(mana) {
+            this._mana = mana;
+        }
+       
         atacar() {
             this.atacar(atacando);
         }
@@ -31,6 +52,27 @@
             super(vida, força, mana);
             this.nome = Guerreiro;
         }
+
+        // Métodos GET e SET
+        get vida() {
+            return this._vida;
+        }
+        set vida(vida) {
+            this._vida = vida;
+        }
+        get força() {
+            return this._força;
+        }
+        set força(força) {
+            this._força = força;
+        }
+        get mana() {
+            return this._mana;
+        }
+        set mana(mana) {
+            this._mana = mana;
+        }
+
         atacar() {
             this.atacar(atacando);
         }
@@ -56,6 +98,26 @@
         constructor(vida, força, mana){
             super(vida, força, mana);
             this.nome = Mago;
+        }
+
+        // Métodos GET e SET
+        get vida() {
+            return this._vida;
+        }
+        set vida(vida) {
+            this._vida = vida;
+        }
+        get força() {
+            return this._força;
+        }
+        set força(força) {
+            this._força = força;
+        }
+        get mana() {
+            return this._mana;
+        }
+        set mana(mana) {
+            this._mana = mana;
         }
 
         atacar() {
@@ -84,6 +146,27 @@
             super(vida, força, mana);
             this.nome = Arqueiro;
         }
+        
+        // Métodos GET e SET
+        get vida() {
+            return this._vida;
+        }
+        set vida(vida) {
+            this._vida = vida;
+        }
+        get força() {
+            return this._força;
+        }
+        set força(força) {
+            this._força = força;
+        }
+        get mana() {
+            return this._mana;
+        }
+        set mana(mana) {
+            this._mana = mana;
+        }
+
         atacar() {
             this.atacar(atacando);
         }
