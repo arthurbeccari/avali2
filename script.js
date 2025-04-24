@@ -20,7 +20,7 @@ class Personagem {
     atacar(oponente) {  
         console.log(`${this.nome} ataca`);  
     }  
-      
+
     receberDano(dano) {  
         this._vida -= dano;  
         console.log(`${this.nome} recebeu ${dano} de dano, Vida restante: ${this._vida}`);  
@@ -41,8 +41,8 @@ class Guerreiro extends Personagem {
 
     atacar(oponente) {  
         const dano = this.força;   
-        oponente.receberDano(dano * 0.1);   
-        console.log(`${this.nome} ataca com sua espada, causando ${dano * 0.1} de dano`);  
+        oponente.receberDano(dano * 0.2);   
+        console.log(`${this.nome} ataca com sua espada, causando ${dano * 0.2} de dano`);  
     }  
 }  
 
@@ -53,8 +53,8 @@ class Mago extends Personagem {
 
     atacar(oponente) {  
         const dano = this.força;   
-        oponente.receberDano(dano * 0.1);   
-        console.log(`${this.nome} lança uma bola de fogo, causando ${dano * 0.1} de dano`);  
+        oponente.receberDano(dano * 0.3);   
+        console.log(`${this.nome} lança uma bola de fogo, causando ${dano * 0.3} de dano`);  
     }  
 }  
 
@@ -65,20 +65,38 @@ class Arqueiro extends Personagem {
 
     atacar(oponente) {  
         const dano = this.força;   
-        oponente.receberDano(dano * 0.1);   
-        console.log(`${this.nome} dispara uma flecha, causando ${dano * 0.1} de dano`);  
+        oponente.receberDano(dano * 0.25);   
+        console.log(`${this.nome} dispara uma flecha, causando ${dano * 0.25} de dano`);  
     }  
 }  
 
-// Polimorfismo  
-function atacar(personagem, oponente) {  
-    personagem.atacar(oponente);  
+// Array para armazenar personagens  
+const personagens = [];  
+
+// Função para adicionar personagens ao array  
+function adicionarPersonagem(personagem) {  
+    personagens.push(personagem);  
 }  
-  
+
+// Função para atacar  
+function atacarTodos(oponente) {  
+    personagens.forEach(personagem => {  
+        if (personagem !== oponente) {  // Evita que um personagem ataque a si mesmo  
+            personagem.atacar(oponente);  
+        }  
+    });  
+}  
+
+// Instanciando personagens  
 const guerrero = new Guerreiro(120, 70, 10);  
 const mago = new Mago(80, 40, 30);  
 const arqueiro = new Arqueiro(90, 60, 25);  
-  
-atacar(guerrero, mago); // Guerreiro ataca o Mago  
-atacar(arqueiro, guerrero); // Arqueiro ataca o Guerreiro  
-atacar(mago, arqueiro); // Mago ataca o Arqueiro  
+
+// Adicionando personagens ao array  
+adicionarPersonagem(guerrero);  
+adicionarPersonagem(mago);  
+adicionarPersonagem(arqueiro);  
+
+// Exemplo de ataque onde o Mago é o alvo  
+console.log("Iniciando a rodada de ataques no Mago:");  
+atacarTodos(mago);  
