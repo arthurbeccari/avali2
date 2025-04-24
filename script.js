@@ -1,200 +1,84 @@
-   class Personagem {
-        constructor(vida, força, mana){
-            this.nome = Personagem;
-            this.vida = vida;
-            this.força = força;
-            this.mana = mana;
-        }
-        
-        // Métodos GET e SET
-        get vida() {
-            return this._vida;
-        }
-        set vida(vida) {
-            this._vida = vida;
-        }
-        get força() {
-            return this._força;
-        }
-        set força(força) {
-            this._força = força;
-        }
-        get mana() {
-            return this._mana;
-        }
-        set mana(mana) {
-            this._mana = mana;
-        }
-       
-        atacar() {
-            this.atacar(atacando);
-        }
-        defender() {
-            this.defender(defendendo);
-        }
-        curar() {
-            this.curar(curando);
-        }
-        morrer() {
-            this.morrer(morrendo);
-        }
-        levelUp() {
-            this.levelUp(levelando);
-        }
-         usarMagia() {
-            this.usarMagia(usando);
-        }
-    }
+class Personagem {  
+    constructor(nome, vida, força, mana) {  
+        this.nome = nome;  
+        this._vida = vida;  
+        this._força = força;  
+        this._mana = mana;  
+    }  
 
+    // Métodos GET  
+    get vida() {  
+        return this._vida;  
+    }  
+    get força() {  
+        return this._força;  
+    }  
+    get mana() {  
+        return this._mana;  
+    }  
+  
+    atacar(oponente) {  
+        console.log(`${this.nome} ataca`);  
+    }  
+      
+    receberDano(dano) {  
+        this._vida -= dano;  
+        console.log(`${this.nome} recebeu ${dano} de dano, Vida restante: ${this._vida}`);  
+        if (this._vida <= 0) {  
+            this.morrer();  
+        }  
+    }  
 
-    class Guerreiro extends Personagem {
-        constructor(vida, força, mana){
-            super(vida, força, mana);
-            this.nome = Guerreiro;
-        }
+    morrer() {  
+        console.log(`${this.nome} morreu`);  
+    }  
+}  
 
-        // Métodos GET e SET
-        get vida() {
-            return this._vida;
-        }
-        set vida(vida) {
-            this._vida = vida;
-        }
-        get força() {
-            return this._força;
-        }
-        set força(força) {
-            this._força = força;
-        }
-        get mana() {
-            return this._mana;
-        }
-        set mana(mana) {
-            this._mana = mana;
-        }
+class Guerreiro extends Personagem {  
+    constructor(vida, força, mana) {  
+        super("Guerreiro", vida, força, mana);  
+    }  
 
-        atacar() {
-            this.atacar(atacando);
-        }
-        defender() {
-            this.defender(defendendo);
-        }
-        curar() {
-            this.curar(curando);
-        }
-        morrer() {
-            this.morrer(morrendo);
-        }
-        levelUp() {
-            this.levelUp(levelando);
-        }
-         usarMagia() {
-            this.usarMagia(usando);
-        }
-    }
+    atacar(oponente) {  
+        const dano = this.força;   
+        oponente.receberDano(dano * 0.1);   
+        console.log(`${this.nome} ataca com sua espada, causando ${dano * 0.1} de dano`);  
+    }  
+}  
 
+class Mago extends Personagem {  
+    constructor(vida, força, mana) {  
+        super("Mago", vida, força, mana);  
+    }  
 
-    class Mago extends Personagem {
-        constructor(vida, força, mana){
-            super(vida, força, mana);
-            this.nome = Mago;
-        }
+    atacar(oponente) {  
+        const dano = this.força;   
+        oponente.receberDano(dano * 0.1);   
+        console.log(`${this.nome} lança uma bola de fogo, causando ${dano * 0.1} de dano`);  
+    }  
+}  
 
-        // Métodos GET e SET
-        get vida() {
-            return this._vida;
-        }
-        set vida(vida) {
-            this._vida = vida;
-        }
-        get força() {
-            return this._força;
-        }
-        set força(força) {
-            this._força = força;
-        }
-        get mana() {
-            return this._mana;
-        }
-        set mana(mana) {
-            this._mana = mana;
-        }
+class Arqueiro extends Personagem {  
+    constructor(vida, força, mana) {  
+        super("Arqueiro", vida, força, mana);  
+    }  
 
-        atacar() {
-            this.atacar(atacando);
-        }
-        defender() {
-            this.defender(defendendo);
-        }
-        curar() {
-            this.curar(curando);
-        }
-        morrer() {
-            this.morrer(morrendo);
-        }
-        levelUp() {
-            this.levelUp(levelando);
-        }
-         usarMagia() {
-            this.usarMagia(usando);
-        }
-    }
+    atacar(oponente) {  
+        const dano = this.força;   
+        oponente.receberDano(dano * 0.1);   
+        console.log(`${this.nome} dispara uma flecha, causando ${dano * 0.1} de dano`);  
+    }  
+}  
 
-
-    class Arqueiro extends Personagem {
-        constructor(vida, força, mana){
-            super(vida, força, mana);
-            this.nome = Arqueiro;
-        }
-        
-        // Métodos GET e SET
-        get vida() {
-            return this._vida;
-        }
-        set vida(vida) {
-            this._vida = vida;
-        }
-        get força() {
-            return this._força;
-        }
-        set força(força) {
-            this._força = força;
-        }
-        get mana() {
-            return this._mana;
-        }
-        set mana(mana) {
-            this._mana = mana;
-        }
-
-        atacar() {
-            this.atacar(atacando);
-        }
-        defender() {
-            this.defender(defendendo);
-        }
-        curar() {
-            this.curar(curando);
-        }
-        morrer() {
-            this.morrer(morrendo);
-        }
-        levelUp() {
-            this.levelUp(levelando);
-        }
-         usarMagia() {
-            this.usarMagia(usando);
-        }
-    }
-
-    {
-    Polimorfismo:
-    function atacar(personagem) {
-        personagem.atacar();
-    }
-
-    const Personagem = new Personagem(100, 50, 20);
-    const Guerreiro = new Guerreiro(120, 70, 10);
-    const Mago = new Mago(80, 40, 30);
-    const Arqueiro = new Arqueiro(90, 60, 25);
-}
+// Polimorfismo  
+function atacar(personagem, oponente) {  
+    personagem.atacar(oponente);  
+}  
+  
+const guerrero = new Guerreiro(120, 70, 10);  
+const mago = new Mago(80, 40, 30);  
+const arqueiro = new Arqueiro(90, 60, 25);  
+  
+atacar(guerrero, mago); // Guerreiro ataca o Mago  
+atacar(arqueiro, guerrero); // Arqueiro ataca o Guerreiro  
+atacar(mago, arqueiro); // Mago ataca o Arqueiro  
